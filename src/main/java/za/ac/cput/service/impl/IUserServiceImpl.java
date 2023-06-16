@@ -1,12 +1,15 @@
 package za.ac.cput.service.impl;
 
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.impl.Book;
 import za.ac.cput.domain.impl.User;
 import za.ac.cput.repository.IUserRepository;
 import za.ac.cput.service.IUserService;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Optional;
+
 @Service("userServiceImpl")
 public class IUserServiceImpl implements IUserService {
     private  IUserRepository repository = null;
@@ -26,14 +29,14 @@ public class IUserServiceImpl implements IUserService {
 
     @Override
     public User read(Integer integer) {
-
-        return (User) this.repository.findAllById(Collections.singleton(integer));
-
+        Optional<User> optionalBook = this.repository.findById(integer);
+        return optionalBook.orElse(null);
     }
 
     @Override
     public User read(int id) {
-        return (User) (User) this.repository.findAllById(Collections.singleton(id));
+        Optional<User> optionalBook = this.repository.findById(id);
+        return optionalBook.orElse(null);
     }
 
     @Override

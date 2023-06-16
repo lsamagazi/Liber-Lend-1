@@ -2,10 +2,12 @@ package za.ac.cput.controllers.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import za.ac.cput.domain.impl.Book;
 import za.ac.cput.domain.impl.User;
 import za.ac.cput.service.impl.IUserServiceImpl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin/users")
@@ -25,13 +27,32 @@ public User createUser(@RequestBody User user) {
         User createdUser = userService.create(user);
         return createdUser;
     }
-    @PostMapping("/read/{userId}")
+    @GetMapping("/read/{userId}")
     public User readUser(@PathVariable Integer userId) {
-        System.out.println("/api/admin/users/read was triggered");
+        System.out.println(" was triggered");
         System.out.println("UserService was created...attempting to read user...");
         User readUser = userService.read(userId);
         return readUser;
     }
+/* @GetMapping("/read/{userId}")
+ public User readUser(@PathVariable Integer userId) {
+     System.out.println(" was triggered");
+     System.out.println("UserService was created...attempting to read user...");
+     List<User> userList = (List<User>) userService.read(userId);
+     if (!userList.isEmpty()) {
+         return userList.get(0); // Return the first User object from the list
+     } else {
+         // Handle the case when the list is empty (no user found)
+         return null; // Or throw an exception, or return an appropriate response
+     }
+ }
+
+    public Book read(@PathVariable int id) {
+        System.out.println("ID: " + id);
+        Book readBook = bookService.read(id);
+        return readBook;
+    }*/
+
 
 
     @PutMapping("/update/{userId}")

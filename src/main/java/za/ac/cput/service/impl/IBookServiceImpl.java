@@ -10,6 +10,7 @@ import za.ac.cput.service.IUserService;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Optional;
 
 @Service("bookServiceImpl")
 public class IBookServiceImpl implements IBookService {
@@ -31,35 +32,36 @@ public class IBookServiceImpl implements IBookService {
     @Override
     public Book read(Integer integer) {
 
-        return (Book) this.repository.findAllById(Collections.singleton(Long.valueOf(integer)));
+        return (Book) this.repository.findAllById(Collections.singleton(integer));
 
     }
 
     @Override
     public Book read(int id) {
-
-        return (Book) this.repository.findAllById(Collections.singleton((long) id));
+        Optional<Book> optionalBook = this.repository.findById(id);
+        return optionalBook.orElse(null);
     }
+
 
     @Override
     public Book update(Book book) {
-        if (this.repository.existsById((long) book.getId()))
+        if (this.repository.existsById(book.getId()))
             return this.repository.save(book);
         return null;
     }
 
     @Override
     public boolean delete(int id) {
-        if (this.repository.existsById((long) id)) {
-            this.repository.deleteById((long) id);
+        if (this.repository.existsById( id)) {
+            this.repository.deleteById( id);
             return true;
         }
         return false;
     }
 
     public boolean delete(Integer id) {
-        if (this.repository.existsById(Long.valueOf(id))) {
-            this.repository.deleteById(Long.valueOf(id));
+        if (this.repository.existsById(id)) {
+            this.repository.deleteById(id);
             return true;
         }
         return false;

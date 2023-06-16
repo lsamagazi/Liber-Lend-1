@@ -67,6 +67,12 @@ public class AdminBookController {
         bookService.delete(id);
         System.out.println("This book is now deleted");
     }
+    @GetMapping("/api/books/read/{id}")
+    public Book read(@PathVariable int id) {
+        System.out.println("ID: " + id);
+        Book readBook = bookService.read(id);
+        return readBook;
+    }
 
    /* @GetMapping("/api/cars/economy")
     public List<Book> getEconomyCars() {

@@ -6,7 +6,7 @@ import za.ac.cput.domain.impl.Book;
 import za.ac.cput.domain.impl.User;
 
 @Repository
-public interface IBookRepository extends JpaRepository<Book, Long> {
+public interface IBookRepository extends JpaRepository<Book, Integer> {
     // Add additional methods as we need them
 
 }
