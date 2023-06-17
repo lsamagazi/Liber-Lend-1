@@ -47,18 +47,20 @@ public class AdminBookController {
 
 
     }
-    @PutMapping("/api/books/update")
+    @PutMapping("/api/books/update/{id}")
     public Book update(@RequestBody Book bookUpdateRequest) {
         // Extract the registration details from the request object
-        String title = bookUpdateRequest.getTitle();
+    /*    String title = bookUpdateRequest.getTitle();
         String author = bookUpdateRequest.getAuthor();
         String publisher = bookUpdateRequest.getPublisher();
         String genre = bookUpdateRequest.getGenre();
         int edition = bookUpdateRequest.getEdition();
         String description = bookUpdateRequest.getDescription();
         System.out.println("Title: " + title);
-        System.out.println("This book is now updated");
+       */
         Book updatedBook = bookService.update(bookUpdateRequest);
+        System.out.println("This book is now updated");
+ //       Book updatedBook = bookService.update(bookUpdateRequest);
         return updatedBook;
     }
     @DeleteMapping("/api/books/delete/{id}")

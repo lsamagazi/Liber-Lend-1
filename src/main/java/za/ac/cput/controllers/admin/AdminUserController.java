@@ -15,7 +15,7 @@ public class AdminUserController {
     @Autowired
     private IUserServiceImpl userService;
 
-    @RequestMapping("/all")
+    @GetMapping ("/all")
     public ArrayList<User> getAll() {
         ArrayList<User> users = new ArrayList<>(userService.getAll());
         return users;
