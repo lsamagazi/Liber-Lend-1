@@ -25,6 +25,7 @@ public class Branch {
         this.availableItems = builder.availableItems;
     }
 
+
     @Override
     public String toString() {
         return "Branch{" +
