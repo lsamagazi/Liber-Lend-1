@@ -1,5 +1,11 @@
 package za.ac.cput.factory;
 
+/**
+ * LoanFactory.java
+ * Author: Lonwabo Sibusisiwe Magazi- 218331851
+ * Date: May 2023
+ */
+
 import za.ac.cput.domain.impl.Book;
 import za.ac.cput.domain.impl.Customer;
 import za.ac.cput.domain.impl.Loan;

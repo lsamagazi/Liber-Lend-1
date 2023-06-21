@@ -1,5 +1,11 @@
 package za.ac.cput.factory;
 
+/**
+ * CustomerFactory.java
+ * Author: Lonwabo Sibusisiwe Magazi- 218331851
+ * Date: May 2023
+ */
+
 import za.ac.cput.domain.impl.Customer;
 
 public class CustomerFactory {

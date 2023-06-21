@@ -1,5 +1,11 @@
 package za.ac.cput.repository;
 
+/**
+ * CustomerRepositoryImpl.java
+ * Author: Lonwabo Sibusisiwe Magazi- 218331851
+ * Date: May 2023
+ */
+
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;

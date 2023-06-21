@@ -1,5 +1,11 @@
 package za.ac.cput.service.impl;
 
+/**
+ * CustomerServiceImpl.java
+ * Author: Lonwabo Sibusisiwe Magazi- 218331851
+ * Date: May 2023
+ */
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
