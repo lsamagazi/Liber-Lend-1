@@ -1,4 +1,4 @@
-package za.ac.cput.controllers.admin;
+package za.ac.cput.controllers;
 
 public class CustomerController {
 
