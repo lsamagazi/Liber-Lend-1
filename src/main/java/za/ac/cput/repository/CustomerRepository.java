@@ -6,6 +6,7 @@ package za.ac.cput.repository;
  * Date: May 2023
  */
 
+
 import za.ac.cput.domain.impl.Customer;
 
 public interface CustomerRepository {

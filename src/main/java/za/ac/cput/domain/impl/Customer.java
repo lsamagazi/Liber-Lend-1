@@ -3,7 +3,7 @@ package za.ac.cput.domain.impl;
 /**
  * Customer.java
  * Author: Lonwabo Sibusisiwe Magazi- 218331851
- * Date: May 2023
+ * Date:  May 2023
  */
 
 import jakarta.persistence.Entity;
