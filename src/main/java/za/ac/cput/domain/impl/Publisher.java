@@ -8,7 +8,7 @@ import java.util.Objects;
 
 @Entity public class Publisher {
     @Id
-    private static int id;
+    private int id;
     private String firstName;
     private String lastName;
     private String publisherNo;
@@ -23,7 +23,7 @@ import java.util.Objects;
 
     }
 
-    public static int getId() {
+    public  int getId() {
         return id;
     }
 

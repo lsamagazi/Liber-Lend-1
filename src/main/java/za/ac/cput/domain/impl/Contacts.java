@@ -7,27 +7,30 @@ package za.ac.cput.domain.impl;
  * Date: 19 March 2023
  */
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Objects;
-
+@Entity
 public class Contacts {
-
+    @Id
     private int id;
-    private long homePhoneNumber;
-    private long workPhoneNumber;
+    private String homePhoneNumber;
+    private String workPhoneNumber;
     private String emailAddress;
 
-    public Contacts() {
+    protected Contacts() {
     }
 
     public int getId() {
         return id;
     }
 
-    public long getHomePhoneNumber() {
+    public String getHomePhoneNumber() {
         return homePhoneNumber;
     }
 
-    public long getWorkPhoneNumber() {
+    public String getWorkPhoneNumber() {
         return workPhoneNumber;
     }
 
@@ -68,8 +71,8 @@ public class Contacts {
 
     public static class Builder {
         private int id;
-        private long homePhoneNumber;
-        private long workPhoneNumber;
+        private String homePhoneNumber;
+        private String workPhoneNumber;
         private String emailAddress;
 
 
@@ -78,12 +81,12 @@ public class Contacts {
         return this;
     }
 
-    public Builder setHomePhoneNumber(long homePhoneNumber) {
+    public Builder setHomePhoneNumber(String homePhoneNumber) {
         this.homePhoneNumber = homePhoneNumber;
         return this;
     }
 
-    public Builder setWorkPhoneNumber(long workPhoneNumber) {
+    public Builder setWorkPhoneNumber(String workPhoneNumber) {
         this.workPhoneNumber = workPhoneNumber;
         return this;
     }

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class AuthorServiceImpl implements IAuthorService {
-    private IAuthorRepository repository;
+    private final IAuthorRepository repository;
     @Autowired
     private AuthorServiceImpl(IAuthorRepository repository){
 
@@ -31,7 +31,7 @@ public class AuthorServiceImpl implements IAuthorService {
 
     @Override
     public Author update(Author author) {
-        if(this.repository.existsById(Author.getId()))
+        if(this.repository.existsById(author.getId()))
             return this.repository.save(author);
         return null;
     }

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class PublisherServiceImpl implements IPublisherService {
-    private IPublisherRepository repository;
+    private final IPublisherRepository repository;
     @Autowired
     private PublisherServiceImpl(IPublisherRepository repository){
 
@@ -30,7 +30,7 @@ public class PublisherServiceImpl implements IPublisherService {
 
     @Override
     public Publisher update(Publisher publisher) {
-        if(this.repository.existsById(Publisher.getId()))
+        if(this.repository.existsById(publisher.getId()))
             return this.repository.save(publisher);
         return null;
     }

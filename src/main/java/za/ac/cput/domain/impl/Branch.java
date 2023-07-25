@@ -7,17 +7,29 @@ package za.ac.cput.domain.impl;
  * Date: 19 March 2023
  */
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.Objects;
-
+@Entity
 public class Branch {
-
+    @Id
     private int id;
     private String name;
+    @NotNull
+    @OneToOne
+    @JoinColumn(name = "FK_ContactsID", referencedColumnName = "id")
     private Contacts contacts;
+    @OneToOne
+    @JoinColumn(name = "FK_AddressID", referencedColumnName = "id")
+    @NotNull
     private Address address;
     private String availableItems;
 
-    public Branch() {
+    protected Branch() {
     }
 
     public int getId() {

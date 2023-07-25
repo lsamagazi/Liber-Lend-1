@@ -6,10 +6,14 @@ package za.ac.cput.domain.impl;
  * Date: 19 March 2023
  */
 
+import jakarta.persistence.Entity;
+
+import jakarta.persistence.Id;
 import java.util.Objects;
 
+@Entity
 public class Address {
-
+    @Id
     private int id;
     private String strNo;
     private String strName;
@@ -17,7 +21,7 @@ public class Address {
     private String city;
     private long postalCode;
 
-    public Address() {
+    protected Address() {
     }
 
     public int getId() {
