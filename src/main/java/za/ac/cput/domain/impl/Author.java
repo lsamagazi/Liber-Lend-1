@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Author {
 
     @Id
-    private static int id;
+    private int id;
     private String firstName;
     private String lastName;
     private String biography;
@@ -32,7 +32,7 @@ public class Author {
 
     }
 
-    public static int getId() {
+    public  int getId() {
         return id;
     }
 
