@@ -7,7 +7,7 @@ import java.util.List;
 public interface IAuthorService {
     Author create(Author author);
 
-    Author read(Integer id);
+    public Author read(Integer id);
 
     Author update(Author author);
 

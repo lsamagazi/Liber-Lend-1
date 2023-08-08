@@ -8,7 +8,7 @@ import za.ac.cput.service.IPublisherService;
 
 import java.util.List;
 @RestController
-@RequestMapping("/publisher")
+@RequestMapping("/branch")
 public class PublisherController {
     @Autowired
     private IPublisherService publisherService;
@@ -22,11 +22,11 @@ public class PublisherController {
         //return branchService.create(branchCreated);
 
     }
-    @GetMapping("read/{id}")
+    @GetMapping("/read/{id}")
     public Publisher read(@PathVariable Integer id){
         return publisherService.read(id);
     }
-    @PostMapping("/update")
+    @PostMapping("/update/")
     public Publisher update(@RequestBody Publisher publisher){
         return publisherService.update(publisher);
     }

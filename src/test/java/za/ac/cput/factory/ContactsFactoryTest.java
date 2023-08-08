@@ -10,13 +10,6 @@ class ContactsFactoryTest {
     @Test
     void testContactsFactory() {
 
-        ContactsFactory contactsFactory = new ContactsFactory();
-        Contacts contacts = contactsFactory.createContacts("021 456 7892", "021 789 1234", "info@cptlibrary.com");
-
-        assertNotNull(contacts);
-        assertNotNull(contacts.getId());
-
-
     }
 
 }

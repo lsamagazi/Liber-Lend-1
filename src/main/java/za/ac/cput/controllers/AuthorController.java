@@ -9,7 +9,7 @@ import za.ac.cput.service.IAuthorService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/author")
+@RequestMapping("/branch")
 public class AuthorController {
     @Autowired
     private IAuthorService authorService;
@@ -23,11 +23,11 @@ public class AuthorController {
         //return branchService.create(branchCreated);
 
     }
-    @GetMapping("read/{id}")
+    @GetMapping("/read/{id}")
     public Author read(@PathVariable Integer id){
         return authorService.read(id);
     }
-    @PostMapping("/update")
+    @PostMapping("/update/")
     public Author update(@RequestBody Author author){
         return authorService.update(author);
     }
