@@ -16,7 +16,7 @@ import za.ac.cput.service.CustomerService;
 @Service
 @Transactional
 public class CustomerServiceImpl implements CustomerService {
-    private final CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
 
     @Autowired
     public CustomerServiceImpl(CustomerRepository customerRepository) {

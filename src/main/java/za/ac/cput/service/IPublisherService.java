@@ -7,7 +7,7 @@ import java.util.List;
 public interface IPublisherService {
     Publisher create(Publisher publisher);
 
-    Publisher read(Integer id);
+    public Publisher read(Integer id);
 
     Publisher update(Publisher publisher);
 
