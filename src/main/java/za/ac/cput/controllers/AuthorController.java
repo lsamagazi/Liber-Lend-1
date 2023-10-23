@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,3 +42,4 @@ public class AuthorController {
         return authorService.getAll();
     }
 }
+*/

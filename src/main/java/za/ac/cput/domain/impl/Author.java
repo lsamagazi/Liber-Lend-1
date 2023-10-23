@@ -2,7 +2,8 @@
  Entity for the Author
  Author: Asiphe Funda (215092317)
  Date: 19 March 2023
-*/
+*//*
+
 
 package za.ac.cput.domain.impl;
 
@@ -106,3 +107,4 @@ public class Author {
         public Author build(){return new Author(this);}
     }
 }
+*/

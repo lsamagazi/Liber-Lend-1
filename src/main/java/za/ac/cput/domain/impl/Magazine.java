@@ -1,10 +1,13 @@
+/*
 package za.ac.cput.domain.impl;
+*/
 /**
  * Magazine.java
  * Class for the Magazine
  * Author: Peter Buckingham (220165289)
  * Date: 17 March 2021
- */
+ *//*
+
 
 import java.util.Date;
 import java.util.Objects;
@@ -150,3 +153,4 @@ public class Magazine {
         return Objects.hash(title, barcode, edition, imageUrl);
     }
 }
+*/

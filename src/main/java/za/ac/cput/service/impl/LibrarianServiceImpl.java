@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service.impl;
 
 import za.ac.cput.domain.impl.Librarian;
@@ -44,3 +45,4 @@ public class LibrarianServiceImpl implements ILibrarianService {
         return this.repository.findAll();
     }
 }
+*/

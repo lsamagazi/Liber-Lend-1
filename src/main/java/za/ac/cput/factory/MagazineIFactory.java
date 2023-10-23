@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.impl.Magazine;
@@ -6,12 +7,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+*/
 /**
  * MagazineFactory.java
  * Class for the MagazineFactory
  * Author: Peter Buckingham (220165289)
  * Date: 19 March 2021
- */
+ *//*
+
 
 
 
@@ -64,4 +67,4 @@ public class MagazineIFactory implements IFactory<Magazine> {
     public Class<Magazine> getType() {
         return null;
     }
-}
+}*/

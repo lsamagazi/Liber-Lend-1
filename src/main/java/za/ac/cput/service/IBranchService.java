@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service;
 
 import za.ac.cput.domain.impl.Branch;
@@ -13,3 +14,4 @@ public interface IBranchService {
     boolean delete(Integer id);
     List<Branch> getAll();
 }
+*/

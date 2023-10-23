@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service;
 
 import za.ac.cput.domain.impl.Author;
@@ -15,3 +16,4 @@ public interface IAuthorService {
 
     List<Author> getAll();
 }
+*/

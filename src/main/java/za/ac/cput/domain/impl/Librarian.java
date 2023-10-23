@@ -1,11 +1,14 @@
+/*
 package za.ac.cput.domain.impl;
 
+*/
 /**
  * Librarian.java
  * Class for Librarian.
  * Author: Cwenga Dlova(214310671)
  * Date: 19 March 2023
- */
+ *//*
+
 public class Librarian  {
 
     private int id;
@@ -119,3 +122,4 @@ public class Librarian  {
         }
     }
 }
+*/

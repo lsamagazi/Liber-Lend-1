@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service;
 
 import za.ac.cput.domain.impl.Publisher;
@@ -15,3 +16,4 @@ public interface IPublisherService {
 
     List<Publisher> getAll();
 }
+*/

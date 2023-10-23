@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.service.impl;
 
 import za.ac.cput.domain.impl.Branch;
@@ -44,3 +45,4 @@ public class BranchServiceImpl implements IBranchService {
         return this.repository.findAll();
     }
 }
+*/

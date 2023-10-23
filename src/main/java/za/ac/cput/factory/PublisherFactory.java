@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.impl.Publisher;
@@ -54,3 +55,4 @@ public class PublisherFactory implements IFactory<Publisher> {
         return null;
     }
 }
+*/

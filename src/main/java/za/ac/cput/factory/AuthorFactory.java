@@ -1,3 +1,4 @@
+/*
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.impl.Author;
@@ -55,4 +56,4 @@ public class AuthorFactory implements IFactory<Author> {
     public Class<Author> getType() {
         return null;
     }
-}
+}*/
