@@ -1,4 +1,4 @@
-package za.ac.cput.controllers;
+package za.ac.cput.controllers.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

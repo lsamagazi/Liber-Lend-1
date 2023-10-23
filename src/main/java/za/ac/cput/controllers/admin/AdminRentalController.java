@@ -22,37 +22,26 @@ public class AdminRentalController {
 
     @PostMapping("/create")
     public Rental createRental(@RequestBody Rental rental) {
-        System.out.println("/api/admin/rentals/create was triggered");
-        System.out.println("RentalService was created...attempting to create book rental...");
-        // Perform any necessary logic for creating a book rental
-
         return rentalService.create(rental);
     }
 
     @GetMapping("/read/{rentalId}")
     public Rental readRental(@PathVariable Integer rentalId) {
-        System.out.println("/api/admin/rentals/read was triggered");
-        System.out.println("RentalService was created...attempting to read book rental...");
-        Rental readRental = rentalService.read(rentalId); // Adjust the service method accordingly
+
+        Rental readRental = rentalService.read(rentalId);
         return readRental;
     }
+    ///`http://localhost:8080/api/rentals/${rentalId}`);
 
     @PutMapping("/update/{rentalId}")
     public Rental updateRental(@PathVariable int rentalId, @RequestBody Rental rental) {
-        System.out.println("/api/admin/rentals/update was triggered");
-
-        // Perform any necessary logic for updating a book rental
-
-        Rental updated = rentalService.update(rental); // Adjust the service method accordingly
+        Rental updated = rentalService.update(rental);
         System.out.println("updated rental: " + updated);
-
         return updated;
     }
 
     @DeleteMapping("/delete/{rentalId}")
     public boolean deleteRental(@PathVariable Integer rentalId) {
-        System.out.println("/api/admin/rentals/delete was triggered");
-        System.out.println("RentalService was created...attempting to delete book rental...");
-        return rentalService.delete(rentalId); // Adjust the service method accordingly
+        return rentalService.delete(rentalId);
     }
 }

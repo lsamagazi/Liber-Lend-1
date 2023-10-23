@@ -20,39 +20,15 @@ public class AdminUserController {
     }
     @PostMapping("/create")
     public User createUser(@RequestBody User user) {
-        System.out.println("/api/admin/users/create was triggered");
-        System.out.println("UserService was created...attempting to create user...");
         User createdUser = userService.create(user);
         return createdUser;
     }
 
     @GetMapping("/read/{userId}")
     public User readUser(@PathVariable Integer userId) {
-        System.out.println(" was triggered");
-        System.out.println("UserService was created...attempting to read user...");
         User readUser = userService.read(userId);
         return readUser;
     }
-/* @GetMapping("/read/{userId}")
- public User readUser(@PathVariable Integer userId) {
-     System.out.println(" was triggered");
-     System.out.println("UserService was created...attempting to read user...");
-     List<User> userList = (List<User>) userService.read(userId);
-     if (!userList.isEmpty()) {
-         return userList.get(0); // Return the first User object from the list
-     } else {
-         // Handle the case when the list is empty (no user found)
-         return null; // Or throw an exception, or return an appropriate response
-     }
- }
-
-    public Book read(@PathVariable int id) {
-        System.out.println("ID: " + id);
-        Book readBook = bookService.read(id);
-        return readBook;
-    }*/
-
-
 
     @PutMapping("/update/{userId}")
     public User updateUser(@PathVariable int userId, @RequestBody User updatedUser) {
@@ -69,4 +45,3 @@ public class AdminUserController {
 
 
 }
-//.delete(`http://localhost:8080/api/admin/cars/delete/${carId}`)

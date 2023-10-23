@@ -16,10 +16,8 @@ import java.util.List;
 
 
 @RestController
-
-
 //set url
-@CrossOrigin(origins = "http://localhost:5173")
+//@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/admin/books")
 public class AdminBookController {
 
@@ -31,18 +29,27 @@ public class AdminBookController {
         List<Book> allBooks = new ArrayList<>(bookService.getAll());
         return allBooks;
     }
-    @PostMapping("/api/books/create")
+    @PostMapping("/create")
     public Book create(@RequestBody Book bookCreationRequest) {
         // Extract the registration details from the request object
+        System.out.println("BookController.create");
         String title = bookCreationRequest.getTitle();
+        System.out.println("Title: " + title);
         String author = bookCreationRequest.getAuthor();
+        System.out.println("Author: " + author);
         String publisher = bookCreationRequest.getPublisher();
+        System.out.println("Publisher: " + publisher);
         String genre = bookCreationRequest.getGenre();
+        System.out.println("Genre: " + genre);
         //isbn
         String isbn = bookCreationRequest.getisbn();
+        System.out.println("ISBN: " + isbn);
         int edition = bookCreationRequest.getEdition();
+        System.out.println("Edition: " + edition);
         String description = bookCreationRequest.getDescription();
-        System.out.println("Title: " + title);
+        System.out.println("Description: " + description);
+
+
         System.out.println("This book is now created");
         Book createdBook = bookService.create(bookCreationRequest);
         return createdBook;

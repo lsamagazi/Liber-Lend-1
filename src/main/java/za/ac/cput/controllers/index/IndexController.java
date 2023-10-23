@@ -1,4 +1,4 @@
-package za.ac.cput.controllers;
+package za.ac.cput.controllers.index;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

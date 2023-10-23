@@ -17,5 +17,14 @@ public interface IRentalRepository extends JpaRepository<Rental, Integer> {
     Optional<Rental> findTopByIdOrderByReturnedDateDesc(int id);
     Optional<Rental> findTopByBookIdOrderByReturnedDateDesc(int id);
     List<Rental> findByUserIdAndReturnedDateIsNull(int id);
+    //get last rental by book id and returned date is null (not returned)
+    Optional<Rental> findTopByBookIdAndReturnedDateIsNull(int id);
+    Optional<Rental> findTopByBookIdOrderByReturnedDateDesc(Integer id);
+
+
+
+
+
+
 //fine
 }

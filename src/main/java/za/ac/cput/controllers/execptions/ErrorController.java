@@ -1,4 +1,4 @@
-package za.ac.cput.controllers;
+package za.ac.cput.controllers.execptions;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

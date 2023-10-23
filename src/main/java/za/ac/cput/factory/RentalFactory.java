@@ -21,6 +21,15 @@ public class RentalFactory {
                 .setFine(fine)
                 .build();
     }
+    public static Rental createRental(Book book, User user, LocalDateTime issuedDate, LocalDateTime returnedDate, Double fine) {
+        return Rental.builder()
+                .setBook(book)
+                .setUser(user)
+                .setIssuedDate(issuedDate)
+                .setDateReturned(returnedDate) // Use setDateReturned instead of returnedDate
+                .setFine(fine)
+                .build();
+    }
     public static Rental createRental(Rental rental) {
         System.out.println("RentalFactory.createRental: " + rental);
         return Rental.builder()

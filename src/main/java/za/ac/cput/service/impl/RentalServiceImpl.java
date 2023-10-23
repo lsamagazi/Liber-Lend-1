@@ -124,17 +124,16 @@ public class RentalServiceImpl {
 
            // System.out.println(rentalFromDatabase.getBook().getTitle() +  "'s return date is null, as it has not been rented yet");
             System.out.println(rental.getBook().getTitle() +  " has not been rented yet");
-
-           // throw new BookNotAvailableException(rentalFromDatabase.getBook().getTitle() + ", has not been rented yet!");
-
-
+            // throw new BookNotAvailableException(rentalFromDatabase.getBook().getTitle() + ", has not been rented yet!");
 
         }
             //if most recent rental is returned is 24hours before new rental then book is available, if the most recent rental has not been returned or is null then book is not available
         if (rentalFromDatabase != null && rentalFromDatabase.getReturnedDate() != null && rental.getIssuedDate() != null) {
-            LocalDateTime timeSinceLastRental = rental.getReturnedDate().minusDays(rentalFromDatabase.getReturnedDate().getDayOfMonth());
-            System.out.println("Rental Date - rentalFromDatabase : " + rentalFromDatabase.getReturnedDate());
-            System.out.println("Rental Date - rentalFromDatabase : " + timeSinceLastRental);
+            if (rental.getReturnedDate() != null) {
+                LocalDateTime timeSinceLastRental = rental.getReturnedDate().minusDays(rentalFromDatabase.getReturnedDate().getDayOfMonth());
+                System.out.println("Rental Date - rentalFromDatabase : " + rentalFromDatabase.getReturnedDate());
+                System.out.println("Rental Date - rentalFromDatabase : " + timeSinceLastRental);
+            }
             //if most recent rental is returned is 24hours before new rental then book is available, if the most recent rental has not been returned or is null then book is not available
         } else if (rentalFromDatabase != null && rentalFromDatabase.getReturnedDate() == null && rental.getIssuedDate() != null){
             System.out.println(rentalFromDatabase.getBook().getTitle() + " has not been returned yet");
@@ -146,21 +145,6 @@ public class RentalServiceImpl {
             //the book has not been rented yet
             System.out.println(rental.getBook().getTitle() +  " has not been rented yet");
         }
-
-
-
-
-        //if most recent rental is returned is 24hours before new rental then book is available, if the most recent rental has not been returned or is null then book is not available
-       /* if (rental.getReturnedDate() != null) {
-            LocalDateTime timeSinceLastRental = rental.getReturnedDate().minusDays(rentalFromDatabase.getReturnedDate().getDayOfMonth());
-            System.out.println("Rental Date - rentalFromDatabase : " + rentalFromDatabase.getReturnedDate());
-            System.out.println("Rental Date - rentalFromDatabase : " + timeSinceLastRental);
-        } else {
-            System.out.println("The book has not been returned yet");
-            //time since date issue till now if book has not been returned yet(current date - date issued)
-            LocalDateTime timeSinceLastRental = LocalDateTime.now().minusDays(rentalFromDatabase.getReturnedDate().getDayOfMonth());
-            System.out.println("Rental Date - rentalFromDatabase : " + rental.getIssuedDate().getDayOfMonth());
-        }*/
 
         //if most recent rental is returned is 24hours before new rental then book is available, if the most recent rental has not been returned or is null then book is not available
         if (rentalFromDatabase == null) { //if no rental has been made

@@ -9,6 +9,7 @@ import za.ac.cput.service.IBookService;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 /*
 * Author: Peter Buckingham (220169289)
@@ -79,6 +80,31 @@ public class BookServiceImpl implements IBookService {
     public ArrayList<Book> getAll() {
         return (ArrayList<Book>) this.repository.findAll();
     }
+    //get book by genre
+    public ArrayList<Book> getBookByGenre(String genre) {
+        ArrayList<Book> booksByGenre = new ArrayList<>();
+
+        // Retrieve all books from the repository
+        ArrayList<Book> allBooksByGenre = repository.findAllByGenre(genre);
+
+        // Iterate over each book to check if the book is available
+//        for (Book book : allBooksByGenre) {
+//            if (book.getGenre().equals(genre)) {
+//                booksByGenre.add(book);
+//            }
+//        }
+        System.out.println("Books by genre: " + allBooksByGenre);
+        return allBooksByGenre;
+    }
+
+
+//    public boolean isBookAvailableByBookId(Book book) {//check if book is available
+//
+//         return this.repository.existsById(book.getId());
+//    }
+
+
+
 
 
     ///////////
