@@ -23,19 +23,23 @@ public class Book {
     private  String title;
     private  String author;
     private String publisher;
-    private String ISBN;
+    private String isbn;
     private String imageLink;
     private String description;
     private String genre;
     private String language;
     private int edition;
 
-    private Book(Builder builder) {
+    public Book() {
+        // Default constructor
+    }
+
+    private Book (Builder builder) {
         this.id = builder.id;
         this.title = builder.title;
         this.author = builder.author;
         this.publisher = builder.publisher;
-        this.ISBN = builder.ISBN;
+        this.isbn = builder.isbn;
         this.imageLink = builder.imageLink;
         this.description = builder.description;
         this.genre = builder.genre;
@@ -43,9 +47,10 @@ public class Book {
         this.edition = builder.edition;
     }
 
-    public Book() {
-        // Default constructor
+    public static Builder builder() {
+        return new Builder();
     }
+
 
     public int getId() {
         return id;
@@ -69,8 +74,8 @@ public class Book {
         return publisher;
     }
 
-    public String getISBN() {
-        return ISBN;
+    public String getisbn() {
+        return isbn;
     }
 
     public String getImageLink() {
@@ -100,22 +105,31 @@ public class Book {
         private  String title;
         private  String author;
         private  String publisher;
-        private  String ISBN;
+        private  String isbn;
         private String imageLink;
         private String description;
         private String genre;
         private String language;
         private int edition;
 
-        public Builder(String title, String author, String publisher, String ISBN) {
-            this.title = title;
-            this.author = author;
-            this.publisher = publisher;
-            this.ISBN = ISBN;
-        }
-
         public Builder id(int id) {
             this.id = id;
+            return this;
+        }
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+        public Builder author(String author) {
+            this.author = author;
+            return this;
+        }
+        public Builder publisher(String publisher) {
+            this.publisher = publisher;
+            return this;
+        }
+        public Builder isbn(String isbn) {
+            this.isbn = isbn;
             return this;
         }
 
@@ -147,6 +161,20 @@ public class Book {
         public Book build() {
             return new Book(this);
         }
+
+        public Builder copy(Book book) {
+            this.id = book.id;
+            this.title = book.title;
+            this.author = book.author;
+            this.publisher = book.publisher;
+            this.isbn = book.isbn;
+            this.imageLink = book.imageLink;
+            this.description = book.description;
+            this.genre = book.genre;
+            this.language = book.language;
+            this.edition = book.edition;
+            return this;
+        }
     }
 
     @Override
@@ -154,13 +182,13 @@ public class Book {
         if (o == this) return true;
         if (!(o instanceof Book other)) return false;
         return Objects.equals(title, other.title) &&
-                Objects.equals(ISBN, other.ISBN) &&
+                Objects.equals(isbn, other.isbn) &&
                 edition == other.edition &&
                 Objects.equals(imageLink, other.imageLink);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, ISBN, edition, imageLink);
+        return Objects.hash(title, isbn, edition, imageLink);
     }
 }

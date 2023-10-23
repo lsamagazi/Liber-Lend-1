@@ -9,8 +9,7 @@ package za.ac.cput.controllers.admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.impl.Book;
-import za.ac.cput.domain.impl.User;
-import za.ac.cput.service.impl.IBookServiceImpl;
+import za.ac.cput.service.impl.BookServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +20,13 @@ import java.util.List;
 
 //set url
 @CrossOrigin(origins = "http://localhost:5173")
+@RequestMapping("/api/admin/books")
 public class AdminBookController {
 
     @Autowired
-    private IBookServiceImpl bookService;
+    private BookServiceImpl bookService;
 
-    @GetMapping("/api/books/all")
+    @GetMapping ("/list/all")
     public List<Book> getBooks() {
         List<Book> allBooks = new ArrayList<>(bookService.getAll());
         return allBooks;
@@ -38,6 +38,8 @@ public class AdminBookController {
         String author = bookCreationRequest.getAuthor();
         String publisher = bookCreationRequest.getPublisher();
         String genre = bookCreationRequest.getGenre();
+        //isbn
+        String isbn = bookCreationRequest.getisbn();
         int edition = bookCreationRequest.getEdition();
         String description = bookCreationRequest.getDescription();
         System.out.println("Title: " + title);
@@ -47,55 +49,25 @@ public class AdminBookController {
 
 
     }
-    @PutMapping("/api/books/update/{id}")
+    @PutMapping("/update/{id}")
     public Book update(@RequestBody Book bookUpdateRequest) {
-        // Extract the registration details from the request object
-    /*    String title = bookUpdateRequest.getTitle();
-        String author = bookUpdateRequest.getAuthor();
-        String publisher = bookUpdateRequest.getPublisher();
-        String genre = bookUpdateRequest.getGenre();
-        int edition = bookUpdateRequest.getEdition();
-        String description = bookUpdateRequest.getDescription();
-        System.out.println("Title: " + title);
-       */
         Book updatedBook = bookService.update(bookUpdateRequest);
-        System.out.println("This book is now updated");
- //       Book updatedBook = bookService.update(bookUpdateRequest);
         return updatedBook;
     }
-    @DeleteMapping("/api/books/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable int id) {
         System.out.println("ID: " + id);
         bookService.delete(id);
         System.out.println("This book is now deleted");
     }
-    @GetMapping("/api/books/read/{id}")
+    @GetMapping("/read/{id}")
     public Book read(@PathVariable int id) {
         System.out.println("ID: " + id);
         Book readBook = bookService.read(id);
         return readBook;
     }
 
-   /* @GetMapping("/api/cars/economy")
-    public List<Book> getEconomyCars() {
-        List<Book> economyCars = new ArrayList<>(bookService.getAll());
-        economyCars.removeIf(car -> car.getPriceGroup() != PriceGroup.ECONOMY);
-        return economyCars;
-    }
 
-    @GetMapping("/api/cars/luxury")
-    public List<Book> getLuxuryCars() {
-        List<Book> luxuryCars = new ArrayList<>(bookService.getAll());
-        luxuryCars.removeIf(car -> car.getPriceGroup() != PriceGroup.LUXURY);
-        return luxuryCars;
-    }
-
-    @GetMapping("/api/cars/special")
-    public List<Book> getSpecialCars() {
-        List<Book> specialCars = new ArrayList<>(bookService.getAll());
-        specialCars.removeIf(car -> car.getPriceGroup() != PriceGroup.SPECIAL);
-        return specialCars;
-    }*/
 
 
 }

@@ -2,20 +2,17 @@ package za.ac.cput.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.impl.User;
-import za.ac.cput.service.impl.IUserServiceImpl;
+import za.ac.cput.service.impl.UserServiceImpl;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
     @Autowired
     @Qualifier("userServiceImpl")
-    private IUserServiceImpl userService;
-
+    private UserServiceImpl userService;
+//    .post("http://localhost:8080/api/user/register", {
     @PostMapping("/register")
     public User register(@RequestBody User registrationRequest) {
         // Extract the registration details from the request object
@@ -37,6 +34,14 @@ public class UserController {
         // Retrieve the user credentials from the request and authenticate the user
         // Return an appropriate response, such as a success message or error message
         return "User logged in successfully";
+    }
+
+    @GetMapping("/profile/{userId}")
+    public User readUser(@PathVariable Integer userId) {
+        System.out.println("/api/admin/users/read was triggered");
+        System.out.println("UserService was created...attempting to read user...");
+        User readUser = userService.read(userId);
+        return readUser;
     }
 
 }
