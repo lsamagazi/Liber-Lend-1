@@ -1,9 +1,6 @@
 package za.ac.cput.domain.impl;
 
 import jakarta.persistence.*;
-import za.ac.cput.domain.impl.User;
-import za.ac.cput.domain.impl.Book;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -22,48 +19,46 @@ public class Reservation {
 
     private LocalDateTime reservationDate;
 
-    // Constructors
+    // Parameterized constructor
+    public Reservation(int id, User user, Book book, LocalDateTime reservationDate) {
+        this.id = id;
+        this.user = user;
+        this.book = book;
+        this.reservationDate = reservationDate;
+    }
 
+    // Default constructor
     public Reservation() {
     }
 
-    public Reservation(Builder builder) {
-        this.id = builder.id;
-        this.user = builder.user;
-        this.book = builder.book;
-        this.reservationDate = builder.reservationDate;
-    }
-
-    // Getters
+    // Getters and setters
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public User getUser() {
         return user;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public LocalDateTime getReservationDate() {
-        return reservationDate;
-    }
-
-    // Setters
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setUser(User user) {
         this.user = user;
     }
 
+    public Book getBook() {
+        return book;
+    }
+
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    public LocalDateTime getReservationDate() {
+        return reservationDate;
     }
 
     public void setReservationDate(LocalDateTime reservationDate) {
@@ -80,9 +75,7 @@ public class Reservation {
                 '}';
     }
 
-    public static Builder builder() {
-        return new Builder();
-    }
+    // Builder pattern
 
     public static class Builder {
         private int id;
@@ -111,15 +104,17 @@ public class Reservation {
         }
 
         public Reservation build() {
-            return new Reservation(this);
+            return new Reservation();
         }
+    }
 
-        public Builder copy(Reservation reservation) {
-            this.id = reservation.id;
-            this.user = reservation.user;
-            this.book = reservation.book;
-            this.reservationDate = reservation.reservationDate;
-            return this;
-        }
+    // Copy method
+    public Reservation copy(Reservation reservation) {
+        return new Builder()
+                .id(reservation.id)
+                .user(reservation.user)
+                .book(reservation.book)
+                .reservationDate(reservation.reservationDate)
+                .build();
     }
 }

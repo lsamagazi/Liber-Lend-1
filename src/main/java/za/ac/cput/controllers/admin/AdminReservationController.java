@@ -21,6 +21,9 @@ public class AdminReservationController {
 
     @PostMapping("/create")
     public Reservation createReservation(@RequestBody Reservation reservation) {
+        // Handle the pickup date here if it's not already set in the Reservation object.
+        // You may want to validate it and set it based on your requirements.
+        // Example: reservation.setReservationDate(LocalDateTime.now());
         return reservationService.create(reservation);
     }
 
@@ -31,6 +34,7 @@ public class AdminReservationController {
 
     @PutMapping("/admin/update/{reservationId}")
     public Reservation updateReservation(@PathVariable Integer reservationId, @RequestBody Reservation updatedReservation) {
+        // Handle the pickup date here if needed.
         return reservationService.updateById(reservationId, updatedReservation);
     }
 
